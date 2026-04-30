@@ -1,0 +1,149 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body {
+    /* Main background image setup */
+    background-image: url('/static/image_0.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container { width: 100%; max-width: 800px; }
+
+header { text-align: center; margin-bottom: 30px; }
+header h1 { 
+    color: #2e7d32;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3rem; 
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9); 
+}
+header p { 
+    color: #53723a; 
+    font-size: 2rem; 
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9); 
+}
+
+/* Glassmorphism Effect for Main Card */
+.card { 
+    background: rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2); 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+/* Transparent Upload Area */
+.upload-area { 
+    border: 2px dashed #2e7d32; 
+    padding: 40px 20px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    background-color: rgba(232, 245, 233, 0.6); 
+    margin-bottom: 20px; 
+    position: relative; 
+    transition: 0.3s; 
+}
+.upload-area:hover { background-color: rgba(200, 230, 201, 0.8); }
+.upload-area input { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; }
+
+#imagePreview { max-width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; border: 2px solid #ccc; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+.btn { background-color: #2e7d32; color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%; box-shadow: 0 4px 6px rgba(46, 125, 50, 0.3); }
+.btn:hover { background-color: #1b5e20; transform: translateY(-2px); }
+.btn:disabled { background-color: #9e9e9e; cursor: not-allowed; }
+
+.hidden { display: none !important; }
+
+#loading { margin-top: 20px; color: #2e7d32; font-weight: bold; }
+
+#resultCard { margin-top: 30px; padding: 25px; border-radius: 10px; text-align: left; }
+.success-bg { background-color: rgba(248, 255, 248, 0.8); border: 2px solid #4caf50; }
+.error-bg { background-color: rgba(255, 250, 251, 0.8); border: 2px solid #f44336; }
+
+#diseaseName { font-size: 1.8rem; margin-bottom: 10px; color: #333; text-align: center; }
+#confidenceLevel { font-size: 1.1rem; color: #333; font-weight: bold; text-align: center; margin-bottom: 20px; }
+
+/* Transparent Treatment Box */
+.treatment-box { 
+    background: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 5px solid #ff9800; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    font-size: 1.05rem; 
+    line-height: 1.6; 
+}
+.treatment-box h3 { color: #d84315; margin-top: 15px; margin-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px; }
+.treatment-box h4 { color: #1565c0; margin-top: 12px; margin-bottom: 5px; }
+.treatment-box ul { padding-left: 20px; margin-bottom: 10px; }
+.treatment-box li { margin-bottom: 4px; }
+.treatment-box .warning { color: #c62828; font-weight: bold; background: rgba(255, 235, 238, 0.8); padding: 8px; border-radius: 5px; display: inline-block; margin-bottom: 10px; }
+.treatment-box .highlight { font-weight: bold; color: #2e7d32; }
+
+/* Typewriter Cursor */
+.typewriter-content::after { content: '|'; animation: blink 1s step-start infinite; font-weight: bold; color: #333; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Doctors Section */
+.doctors-section h2 { 
+    text-align: center; 
+    color: #2e7d32; 
+    margin-bottom: 20px; 
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+}
+.doctors-section { text-align: center; } 
+
+.doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
+
+/* 🔴 Doctors Card - With new blurred background image 🔴 */
+.doc-card { 
+    position: relative; /* Important for absolute positioning of the background */
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    text-align: left; 
+    border-top: 4px solid #2e7d32; 
+    transition: 0.3s; 
+    overflow: hidden; /* Prevents the blur effect from spilling outside the card */
+    z-index: 1; /* Keeps the text content above the background */
+}
+
+/* Pseudo-element to hold the blurred image background */
+.doc-card::before {
+    content: "";
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px; /* Pulled slightly outwards to prevent unblurred edges */
+    background-image: url('/static/proyegia.jpg'); /* The new image saved in the static folder */
+    background-size: cover;
+    background-position: center;
+    filter: blur(0px); /* Applies the blur effect */
+    opacity: 0.9; /* Lowers opacity to ensure text readability */
+    z-index: -1; /* Pushes the background behind the text */
+}
+
+.doc-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); 
+}
+
+/* Added white text shadow to make the text pop against the image background */
+.doc-card h4 { color: #ffffff; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 1.3rem; margin-bottom: 5px; text-shadow: 1px 1px 3px rgba(75, 75, 75, 0.9); font-weight: 800; }
+.doc-card .qual { color: #a1c4eb; font-weight: bold; font-size: 0.95rem; margin-bottom: 15px; text-shadow: 1px 1px 3px rgba(73, 73, 73, 0.9); }
+.doc-card p { color: #fffefe; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 600; text-shadow: 1px 1px 3px rgba(99, 99, 99, 0.9); }

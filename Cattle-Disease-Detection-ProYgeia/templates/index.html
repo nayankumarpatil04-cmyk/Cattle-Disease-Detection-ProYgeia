@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProYgeia - Cattle Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-leaf"></i> ProYgeia</h1>
+            <p>Smart Agricultural Disease Prediction System</p>
+        </header>
+
+        <main class="card">
+            <form id="uploadForm">
+                <div class="upload-area" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt fa-3x" style="color: #2e7d32; margin-bottom: 10px;"></i>
+                    <p>To select an image, click here or drag the image</p>
+                    <input type="file" id="fileInput" name="file" accept="image/*" required>
+                </div>
+                
+                <div id="imagePreviewContainer" class="hidden">
+                    <img id="imagePreview" src="" alt="Preview">
+                </div>
+
+                <button type="submit" id="predictBtn" class="btn"><i class="fas fa-stethoscope"></i> Predict Disease</button>
+            </form>
+
+            <div id="loading" class="hidden">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p>Checking... Please wait.</p>
+            </div>
+            
+            <div id="resultCard" class="hidden">
+                <h3 id="diseaseName"></h3>
+                <p id="confidenceLevel"></p>
+
+                <div id="heatmapContainer" class="hidden" style="margin-top: 20px; text-align: center;">
+                    <h4 style="color: #2e7d32; margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+                        <i class="fas fa-microscope"></i> Explainable (Disease Localization)
+                    </h4>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 10px;">The heatmap highlights the affected regions detected by the model.</p>
+                    <img id="heatmapImage" src="" alt="AI Heatmap" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div id="treatmentSection" class="hidden">
+                    <div class="treatment-box">
+                        <div id="treatmentText" class="typewriter-content"></div>
+                    </div>
+                </div>
+
+                <button type="button" id="resetBtn" class="btn" style="margin-top: 20px; background-color: #f57c00; color: white;">
+                    <i class="fas fa-redo"></i> Upload New Image
+                </button>
+            </div>
+        </main>
+
+        <section class="doctors-section">
+            <h2><i class="fas fa-user-md"></i> Our Expert Veterinarians</h2>
+            <div class="doctors-grid">
+                <div class="doc-card">
+                    <h4>Dr. Ashitosh Soni</h4>
+                    <p class="qual">B.V.Sc & A.H.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 xxxxxx6789</p>
+                    <p><i class="fas fa-envelope"></i> dr.ak@proygeia.in</p>
+                </div>
+                <div class="doc-card">
+                    <h4>Dr. Priyanka Mehta</h4>
+                    <p class="qual">M.V.Sc (Medicine)</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 xxxxxx6756</p>
+                    <p><i class="fas fa-envelope"></i> dr.pmehta@proygeia.in</p>
+                </div>
+                <div class="doc-card">
+                    <h4>Dr. Shweta Patil</h4>
+                    <p class="qual">B.V.Sc & A.H.</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 xxxxxx7654</p>
+                    <p><i class="fas fa-envelope"></i> dr.shwetap@proygeia.in</p>
+                </div>
+                <div class="doc-card">
+                    <h4>Dr. Mohan Nikam</h4>
+                    <p class="qual">M.V.Sc (Surgery)</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 xxxxxx6564</p>
+                    <p><i class="fas fa-envelope"></i> dr.mnikam@proygeia.in</p>
+                </div>
+                <div class="doc-card">
+                    <h4>Dr. Roshni Reddy</h4>
+                    <p class="qual">M.V.Sc (Surgery)</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 xxxxxx6555</p>
+                    <p><i class="fas fa-envelope"></i> dr.rmreddy@proygeia.in</p>
+                </div>
+                <div class="doc-card">
+                    <h4>Dr. Priti Deore</h4>
+                    <p class="qual">M.V.Sc (Surgery)</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 xxxxxx6555</p>
+                    <p><i class="fas fa-envelope"></i> dr.pdeore121@proygeia.in</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
